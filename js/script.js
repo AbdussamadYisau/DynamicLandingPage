@@ -8,7 +8,8 @@ const focus = document.getElementById('focus');
   //Show Time
 
   function showTime() {
-  	// body...
+  	// body
+    
   	let today = new Date(),
   	  hour = today.getHours(),
   	  min  = today.getMinutes(),
@@ -33,7 +34,7 @@ function addZero(n) {
 
 // Set Background and Greeting
 function setBG() {
-	let today = new Date(), 
+let today = new Date(), 
 	   hour = today.getHours();
     
     if (hour < 12) {
@@ -74,6 +75,19 @@ function getName() {
  
 } 
 
+ // Set Name
+function setName(e) {
+  if (e.type === 'keypress') {
+    // Make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      localStorage.setItem('name', e.target.innerText);
+      name.blur();
+    }
+  } else {
+    localStorage.setItem('name', e.target.innerText);
+  }
+} 
+
 
 //Get Focus
   function getFocus() {
@@ -84,7 +98,26 @@ function getName() {
     focus.textContent = localStorage.getItem('focus');
     }
  
-} 
+}
+
+// Set Name
+function setFocus(e) {
+  if (e.type === 'keypress') {
+    // Make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      localStorage.setItem('focus', e.target.innerText);
+      name.blur();
+    }
+  } else {
+    localStorage.setItem('focus', e.target.innerText);
+  }
+}  
+
+
+name.addEventListener("keypress", setName);
+name.addEventListener("blur", setName);
+focus.addEventListener("keypress", setFocus);
+focus.addEventListener("blur", setFocus);
 
 
   //Run
