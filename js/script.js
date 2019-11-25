@@ -125,3 +125,8 @@ focus.addEventListener("blur", setFocus);
   showTime();
   getName();
   getFocus();
+
+
+  // function selectText(){
+  //       document.getElementsByClassName("edit-text").select();
+  //   }
